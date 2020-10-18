@@ -1,2 +1,2 @@
-# cms-blog test
+# cms-blog
 
