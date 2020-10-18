@@ -1,4 +1,5 @@
 const router = require("express").Router();
+//import user model
 const { User } = require("../../models");
 
 router.post('/', (req, res) => {
@@ -12,7 +13,6 @@ router.post('/', (req, res) => {
           req.session.user_id = dbUserData.id;
           req.session.username = dbUserData.username;
           req.session.loggedIn = true;
-    
           res.json(dbUserData);
         });
       })
@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
     
     User.findOne({
       where: {
-        email: req.body.email
+        username: req.body.username
       }
     }).then(dbUserData => {
       if (!dbUserData) {
@@ -46,7 +46,7 @@ router.post('/', (req, res) => {
         req.session.username = dbUserData.username;
         req.session.loggedIn = true;
     
-        res.json({ user: dbUserData, message: 'You are now logged in!' });
+        res.json({ user: dbUserData, message: 'Logged in.' });
       });
     });
   });
