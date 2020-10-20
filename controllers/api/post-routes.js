@@ -1,15 +1,14 @@
 const router = require('express').Router();
 //import models
-const { Post, User, Comment, } = require('../../models');
+const { Post, User, Comment, } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, (req, res) => {
     const body = req.body;
     console.log(req.session.user_Id);
     Post.create({...body, user_id: req.session.user_id})
-      .then(postData => res.json(postData))
+      .then(postData => {res.json(postData);})
       .catch(err => {
-        console.log(err);
         res.status(500).json(err);
       });
   });
