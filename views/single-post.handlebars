@@ -1,23 +1,23 @@
 <div class="post">
-  <article class="card">
-    <div class="card-header flex-row justify-space-between">
+  <article class="post">
+    <div class="control row space">
       <h2>{{post.title}}</h2>
       <div>
         Posted by {{post.User.username}} on {{format_date post.createdAt}}
       </div>
     </div>
-    <div class="card-body">
+    <div class="content">
       {{post.body}}
     </div>
   </article>
 
   {{#if post.Comments}}
-    <section class="card">
-      <div class="card-header">
-        <h3>Comments</h3>
+    <section class="post">
+      <div class="control">
+        <h2>Comments</h2>
       </div>
 
-      <div class="card-body">
+      <div class="content">
         {{#each post.Comments}}
           <div>
             <p>
@@ -32,15 +32,15 @@
     </section>
   {{/if}}
 
-  <form id="new-comment-form" class="card">
-    <div class="card-header">
-      <h3>Add New Comment</h3>
+  <form id="new-comment-form" class="post">
+    <div class="control">
+      <h2>Add New Comment</h2>
     </div>
 
-    <div class="card-body">
+    <div class="content">
       <input type="hidden" name="post-id" value="{{post.id}}" />
 
-      <label class="form-label" for="comment-body">Comment</label>
+      <label class="form" for="comment-body">Comment</label>
 
       <textarea name="comment-body" class="form-input"></textarea>
 

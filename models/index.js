@@ -7,7 +7,7 @@ const Comment = require('./Comment');
 
 Post.belongsTo(User, {
   foreignKey: 'user_id',
-  //DELETE child data
+  //DELETE child data of user
   onDelete: 'CASCADE'
 });
 

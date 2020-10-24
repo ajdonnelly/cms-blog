@@ -4,29 +4,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Tech Blog</title>
+  <title>The CMS Blog</title>
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
-<body class="flex-column min-100-vh">
-  <nav class="navbar">
+<body class="column min-100-vh">
+  <nav class="nav">
     <ul>
-      <li class="li-inline nav-item"><a href="/">Home</a></li>
-      <li class="li-inline nav-item"><a href="/dashboard">Dashboard</a></li>
-      <li class="li-inline nav-item"><a href="/login">Login</a></li>
-      <li class="li-inline nav-item"><a href="#" id="logout-link">Logout</a></li>
+      <li class="list link"><a href="/">Home</a></li>
+      <li class="list link"><a href="/dashboard">Dashboard</a></li>
+      <li class="list link"><a href="/login">Login</a></li>
+      <li class="list link"><a href="#" id="logout-link">Logout</a></li>
     </ul>
   </nav>
-  <header class="hero">
-    <h1 class="app-title"><a href="/">The CMS Blog</a></h1>
+  <header class="dash">
+    <h1 class="name"><a href="/">The CMS Blog</a></h1>
   </header>
 
-  <main class="col-auto">
+  <main class="grow">
     {{{body}}}
   </main>
 
-  <footer class="flex-row justify-center">
+  <footer class="row center">
     Thanks for visiting!
   </footer>
 </body>

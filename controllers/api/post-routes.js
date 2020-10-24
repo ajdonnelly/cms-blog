@@ -3,12 +3,20 @@ const router = require('express').Router();
 const { Post, User, Comment, } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
+
 router.post('/', withAuth, (req, res) => {
-    const body = req.body;
-    console.log(req.session.user_id);
-    Post.create({...body, user_id: req.session.user_id})
-      .then(postData => {res.json(postData);})
+    // const body = req.body;
+    Post.create({
+        title: req.body.title,
+        post_url: req.body.post_url,
+        user_id: req.session.user_id
+        // ...body, user_id: req.session.user_id
+    })
+    .then(dbPostData => {
+        res.json(dbPostData);
+      })
       .catch(err => {
+        console.log(err);
         res.status(500).json(err);
       });
   });
@@ -29,7 +37,7 @@ router.post('/', withAuth, (req, res) => {
       });
     
   router.delete('/:id', withAuth, (req, res) => {
-  
+    
     Post.destroy({where: {id: req.params.id}})
       .then(deletePostData => {
         if (deletePostData > 0) {

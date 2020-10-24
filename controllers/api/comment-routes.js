@@ -1,18 +1,18 @@
+const router = require("express").Router();
+const withAuth = require("../../utils/auth");
+const { Comment } = require("../../models/");
 
-const router = require('express').Router();
-//import Comment module 
-const { Comment } = require('../../models/');
-//import auth.js
-const withAuth = require('../../utils/auth');
 
-//create new post comment 
-router.post('/', withAuth, (req, res) => {
+router.post("/", withAuth, (req, res) => {
+    
+  Comment.create({ ...req.body, user_id: req.session.user_id })
+    .then(dbCommentData => {
+      res.json(dbCommentData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
-    Comment.create({ ...req.body, user_id: req.session.user_id })
-      .then(commentData => {res.json(commentData);})
-      .catch(err => {
-        res.status(500).json(err);
-      });
-  });
-
-  module.exports = router;
+module.exports = router;

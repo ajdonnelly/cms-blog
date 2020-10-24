@@ -4,29 +4,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Tech Blog</title>
+  <title>The CMS Blog</title>
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
-<body class="flex-column min-100-vh">
-  <nav class="navbar">
-    <ul class="flex-row">
-      <li class="li-inline nav-item"><a href="/">Home</a></li>
-      <li class="li-inline nav-item"><a href="/dashboard">Dashboard</a></li>
-      <li class="li-inline nav-item"><a href="#" id="logout-link">Logout</a></li>
+<body class="column min-100-vh">
+  <nav class="nav">
+    <ul class="row">
+      <li class="list link"><a href="/">Home</a></li>
+      <li class="list link"><a href="/dashboard">Dashboard</a></li>
+      <li class="list link"><a href="#" id="logout-link">Logout</a></li>
     </ul>
   </nav>
-  <header class="hero">
-    <h1 class="app-title"><a href="/dashboard">Your Dashboard</a></h1>
+  <header class="dash">
+    <h1 class="name"><a href="/dashboard">CMS Blog Dashboard</a></h1>
   </header>
 
-  <main class="col-auto">
+  <main class="grow">
     {{{body}}}
   </main>
 
-  <footer class="footer flex-row justify-center">
-    <a href="/dashboard/new">➕ New Post</a>
+  <footer class="footer row center">
+    <a href="/dashboard/new">Add New Post</a>
   </footer>
 </body>
 

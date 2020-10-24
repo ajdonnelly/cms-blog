@@ -6,9 +6,8 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, (req, res) => {
   Post.findAll({where: {user_id: req.session.user_id}})
     .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render("all-posts-admin", {layout: "dashboard", posts
-    });
+      const posts = dbPostData.map((post) => post.get({ plain: true }));
+      res.render("all-posts-admin", { layout: "dashboard", posts });
     })
     .catch(err => {
       console.log(err);
@@ -16,11 +15,6 @@ router.get('/', withAuth, (req, res) => {
       });
 });
 
-router.get("/new", withAuth, (req, res) => {
-    res.render("new-post", {
-      layout: "dashboard"
-    });
-  });
 
 router.get('/edit/:id', withAuth, (req, res) => {
   Post.findByPk(req.params.id)
@@ -28,10 +22,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
       if (dbPostData) {
         const post = dbPostData.get({ plain: true });
         
-        res.render("edit-post", {
-            layout: "dashboard",
-            post
-          });
+        res.render("edit-post", {layout: "dashboard", post});
         } else {
           res.status(404).end();
         }
@@ -39,6 +30,12 @@ router.get('/edit/:id', withAuth, (req, res) => {
       .catch(err => {
         res.status(500).json(err);
       });
+  });
+
+router.get("/new", withAuth, (req, res) => {
+    res.render("add-post", {
+      layout: "dashboard"
+    });
   });
 
 module.exports = router;

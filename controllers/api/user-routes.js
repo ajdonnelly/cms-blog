@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
       }
     }).then(dbUserData => {
       if (!dbUserData) {
-        res.status(400).json({ message: 'No user found!' });
+        res.status(400).json({ message: 'No user with that username!' });
         return;
       }
   
